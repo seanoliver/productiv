@@ -12,12 +12,27 @@ import React, { useState } from "react";
 
 function TodoForm({handleSave, initialFormData}) {
 
+  const [formData, setFormData] = useState(initialFormData);
+
   /** Update form input. */
-  function handleChange(evt) { }
+  function handleChange(evt) {
+    const { name, value } = evt.target;
+		setFormData(fData => ({
+			...fData,      // fData: title, description, priority, id
+			[name]: value, // overwrites that field's value
+		}));
+   }
 
   /** Call parent function and clear form. */
   function handleSubmit(evt) {
-    
+    evt.preventDefault();
+    const updatedData = {
+      id: formData.id,
+      title: evt.target.title.value,
+      description: evt.target.description.value,
+      priority: evt.target.priority.value
+    };
+    handleSave(updatedData);
   }
 
   return (
@@ -30,7 +45,7 @@ function TodoForm({handleSave, initialFormData}) {
               className="form-control"
               placeholder="Title"
               onChange={handleChange}
-              value={initialFormData.title}
+              value={formData.title}
               aria-label="Title"
           />
         </div>
@@ -42,7 +57,7 @@ function TodoForm({handleSave, initialFormData}) {
               className="form-control"
               placeholder="Description"
               onChange={handleChange}
-              value={initialFormData.desription}
+              value={formData.description}
               aria-label="Description"
           />
         </div>
@@ -54,7 +69,7 @@ function TodoForm({handleSave, initialFormData}) {
             </label>
             <select id="newTodo-priority"
                     name="priority"
-                    value={initialFormData.priority}
+                    value={formData.priority}
                     onChange={handleChange}
                     className="form-control form-control-sm d-inline-flex"
             >
