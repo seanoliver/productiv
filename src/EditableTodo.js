@@ -42,7 +42,6 @@ function EditableTodo({ todo, update, remove }) {
           handleSave={handleSave}
           initialFormData={todo}
         />}
-      OR
       {editing === false &&
         <div className="mb-3">
           <div className="float-end text-sm-end">
@@ -57,7 +56,12 @@ function EditableTodo({ todo, update, remove }) {
               Del
             </button>
           </div>
-          <Todo />
+          <Todo
+            id={todo.id}
+            title={todo.title}
+            description={todo.description}
+            priority={todo.priority}
+          />
         </div>}
     </div>
   );
