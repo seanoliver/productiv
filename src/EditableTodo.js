@@ -25,8 +25,8 @@ function EditableTodo({ todo, update, remove }) {
   }
 
   /** Call remove fn passed to this. */
-  function handleDelete(id) {
-    remove(id);
+  function handleDelete(evt) {
+    remove(todo.id);
   }
 
   /** Edit form saved; toggle isEditing and update in ancestor. */
