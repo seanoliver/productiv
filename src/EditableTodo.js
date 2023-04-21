@@ -16,55 +16,58 @@ import TodoForm from './TodoForm';
  */
 
 function EditableTodo({ todo, update, remove }) {
-  const [editing, setEditing] = useState(false);
+	const [editing, setEditing] = useState(false);
 
-  /** Toggle if this is being edited */
-  function toggleEdit() {
-    const isEditing = editing ? false : true;
-    setEditing(isEditing);
-  }
+	/** Toggle if this is being edited */
+  // TODO: Callback pattern!
+	function toggleEdit() {
+		const isEditing = editing ? false : true;
+		setEditing(isEditing);
+	}
 
-  /** Call remove fn passed to this. */
-  function handleDelete(evt) {
-    remove(todo.id);
-  }
+	/** Call remove fn passed to this. */
+	function handleDelete(evt) {
+		remove(todo.id);
+	}
 
-  /** Edit form saved; toggle isEditing and update in ancestor. */
-  function handleSave(formData) {
-    update({ ...formData });
-    toggleEdit();
-  }
+	/** Edit form saved; toggle isEditing and update in ancestor. */
+	function handleSave(formData) {
+		update({ ...formData });
+		toggleEdit();
+	}
 
-  return (
-    <div className="EditableTodo">
-      {editing === true &&
-        <TodoForm
-          handleSave={handleSave}
-          initialFormData={todo}
-        />}
-      {editing === false &&
-        <div className="mb-3">
-          <div className="float-end text-sm-end">
-            <button
-              className="EditableTodo-toggle btn-link btn btn-sm"
-              onClick={toggleEdit}>
-              Edit
-            </button>
-            <button
-              className="EditableTodo-delBtn btn-link btn btn-sm text-danger"
-              onClick={handleDelete}>
-              Del
-            </button>
-          </div>
-          <Todo
-            id={todo.id}
-            title={todo.title}
-            description={todo.description}
-            priority={todo.priority}
+	return (
+		<div className="EditableTodo">
+      {editing === true
+        ?
+          <TodoForm
+            handleSave={handleSave}
+            initialFormData={todo}
           />
-        </div>}
-    </div>
-  );
+        :
+          <div className="mb-3">
+            <div className="float-end text-sm-end">
+              <button
+                className="EditableTodo-toggle btn-link btn btn-sm"
+                onClick={toggleEdit}>
+                Edit
+              </button>
+              <button
+                className="EditableTodo-delBtn btn-link btn btn-sm text-danger"
+                onClick={handleDelete}>
+                Del
+              </button>
+            </div>
+            <Todo
+              id={todo.id}
+              title={todo.title}
+              description={todo.description}
+              priority={todo.priority}
+            />
+          </div>
+			}
+		</div>
+	);
 }
 
 export default EditableTodo;

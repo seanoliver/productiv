@@ -20,12 +20,15 @@ function TodoApp({ initialTodos }) {
 	const [todos, setTodos] = useState(initialTodos);
 
 	/** add a new todo to list */
+  // TODO: Ensure priority is a number
 	function create(newTodo) {
-		let newTodoWithId = { ...newTodo, id: uuid() };
-    setTodos(todos => [...todos, newTodoWithId]);
+		const newTodoWithId = { ...newTodo, id: uuid() };
+		setTodos(curr => [...curr, newTodoWithId]);
 	}
 
 	/** update a todo with updatedTodo */
+  // TODO: Callback pattern for updating state
+  // TODO: Ensure priority is a number
 	function update(updatedTodo) {
 		const newTodos = todos.map(t =>
 			t.id === updatedTodo.id ? updatedTodo : t
@@ -35,6 +38,7 @@ function TodoApp({ initialTodos }) {
 	}
 
 	/** delete a todo by id */
+  // TODO: Callback pattern for updating state
 	function remove(id) {
 		const newTodos = todos.filter(t => id !== t.id);
 		setTodos(newTodos);
@@ -45,6 +49,7 @@ function TodoApp({ initialTodos }) {
 			<div className="row">
 				{/* TO DO LIST */}
 				<div className="col-md-6">
+          {/* TODO: Could make this a ternary */}
 					{todos.length > 0 && (
 						<EditableTodoList
 							todos={todos}
@@ -56,7 +61,6 @@ function TodoApp({ initialTodos }) {
 						<span className="text-muted">You have no todos.</span>
 					)}
 				</div>
-
 				{/* TOP TO DO */}
 				<div className="col-md-6">
 					{todos.length > 0 && (

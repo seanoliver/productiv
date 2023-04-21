@@ -11,6 +11,9 @@ import Todo from './Todo';
  */
 
 function TopTodo({ todos }) {
+  // TODO: Consider adding a guard condition to confirm length > 0 & todos is an
+  // array. (Can return null to avoid errors.)
+
 	// lowest-priority # is the highest priority
 	let top = todos.reduce(
 		(acc, cur) => (cur.priority < acc.priority ? cur : acc),
@@ -22,7 +25,7 @@ function TopTodo({ todos }) {
 			title={top.title}
 			description={top.description}
 			priority={top.priority}
-      id={top.id}
+			id={top.id}
 		/>
 	);
 }

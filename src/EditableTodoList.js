@@ -19,7 +19,7 @@ function EditableTodoList({ todos, update, remove }) {
 					todo={t}
 					update={update}
 					remove={remove}
-          key={t.id}
+					key={t.id}
 				/>
 			))}
 		</div>
