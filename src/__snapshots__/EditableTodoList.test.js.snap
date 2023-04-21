@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditableTodoList matches snapshot in non-editing state 1`] = `
+<div>
+  <div>
+    <div
+      class="EditableTodo"
+    >
+      <div
+        class="mb-3"
+      >
+        <div
+          class="float-end text-sm-end"
+        >
+          <button
+            class="EditableTodo-toggle btn-link btn btn-sm"
+          >
+            Edit
+          </button>
+          <button
+            class="EditableTodo-delBtn btn-link btn btn-sm text-danger"
+          >
+            Del
+          </button>
+        </div>
+        <div
+          class="Todo"
+        >
+          <div>
+            <b
+              class="Todo-title"
+            >
+              Test title
+            </b>
+            <small
+              class="Todo-priority"
+            >
+              (priority: 
+              1
+              )
+            </small>
+          </div>
+          <div>
+            <small
+              class="Todo-description"
+            >
+              Test description
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="EditableTodo"
+    >
+      <div
+        class="mb-3"
+      >
+        <div
+          class="float-end text-sm-end"
+        >
+          <button
+            class="EditableTodo-toggle btn-link btn btn-sm"
+          >
+            Edit
+          </button>
+          <button
+            class="EditableTodo-delBtn btn-link btn btn-sm text-danger"
+          >
+            Del
+          </button>
+        </div>
+        <div
+          class="Todo"
+        >
+          <div>
+            <b
+              class="Todo-title"
+            >
+              Test title 2
+            </b>
+            <small
+              class="Todo-priority"
+            >
+              (priority: 
+              1
+              )
+            </small>
+          </div>
+          <div>
+            <small
+              class="Todo-description"
+            >
+              Test description 2
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="EditableTodo"
+    >
+      <div
+        class="mb-3"
+      >
+        <div
+          class="float-end text-sm-end"
+        >
+          <button
+            class="EditableTodo-toggle btn-link btn btn-sm"
+          >
+            Edit
+          </button>
+          <button
+            class="EditableTodo-delBtn btn-link btn btn-sm text-danger"
+          >
+            Del
+          </button>
+        </div>
+        <div
+          class="Todo"
+        >
+          <div>
+            <b
+              class="Todo-title"
+            >
+              Test title 3
+            </b>
+            <small
+              class="Todo-priority"
+            >
+              (priority: 
+              1
+              )
+            </small>
+          </div>
+          <div>
+            <small
+              class="Todo-description"
+            >
+              Test description 3
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
