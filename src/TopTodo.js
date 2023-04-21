@@ -11,8 +11,7 @@ import Todo from './Todo';
  */
 
 function TopTodo({ todos }) {
-  // TODO: Consider adding a guard condition to confirm length > 0 & todos is an
-  // array. (Can return null to avoid errors.)
+  if (todos.length === 0) return null; // so if no todos - will not show on page
 
 	// lowest-priority # is the highest priority
 	let top = todos.reduce(
