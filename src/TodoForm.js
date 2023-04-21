@@ -10,7 +10,13 @@ import React, { useState } from "react";
  * { TodoApp, EditableTodo } -> TodoForm
  */
 
-function TodoForm({handleSave, initialFormData}) {
+const NEW_TASK = {
+  title: "",
+  description: "",
+  priority: 2,
+}
+
+function TodoForm({handleSave, initialFormData=NEW_TASK}) {
 
   const [formData, setFormData] = useState(initialFormData);
 
@@ -33,6 +39,7 @@ function TodoForm({handleSave, initialFormData}) {
       priority: evt.target.priority.value
     };
     handleSave(updatedData);
+    setFormData(initialFormData);
   }
 
   return (

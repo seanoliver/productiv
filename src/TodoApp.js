@@ -3,6 +3,7 @@ import { v4 as uuid } from 'uuid';
 
 import TopTodo from './TopTodo';
 import EditableTodoList from './EditableTodoList';
+import TodoForm from './TodoForm';
 
 /** App for managing a todo list.
  *
@@ -16,55 +17,63 @@ import EditableTodoList from './EditableTodoList';
  */
 
 function TodoApp({ initialTodos }) {
-  const [todos, setTodos] = useState(initialTodos);
+	const [todos, setTodos] = useState(initialTodos);
 
-  /** add a new todo to list */
-  function create(newTodo) { }
+	/** add a new todo to list */
+	function create(newTodo) {
+		let newTodoWithId = { ...newTodo, id: uuid() };
+    setTodos(todos => [...todos, newTodoWithId]);
+	}
 
-  /** update a todo with updatedTodo */
-  function update(updatedTodo) {
-    const newTodos = todos.map(t => t.id === updatedTodo.id ? updatedTodo : t);
+	/** update a todo with updatedTodo */
+	function update(updatedTodo) {
+		const newTodos = todos.map(t =>
+			t.id === updatedTodo.id ? updatedTodo : t
+		);
 
-    setTodos(newTodos);
-  };
+		setTodos(newTodos);
+	}
 
-  /** delete a todo by id */
-  function remove(id) {
-    const newTodos = todos.filter(t => id !== t.id);
-    setTodos(newTodos);
-  }
+	/** delete a todo by id */
+	function remove(id) {
+		const newTodos = todos.filter(t => id !== t.id);
+		setTodos(newTodos);
+	}
 
-  return (
-    <main className="TodoApp">
-      <div className="row">
-        {/* TO DO LIST */}
-        <div className="col-md-6">
-          {todos.length > 0 &&
-            <EditableTodoList
-              todos={todos}
-              update={update}
-              remove={remove}
-            />}
-          {todos.length === 0 &&
-            <span className="text-muted">You have no todos.</span>}
-        </div>
+	return (
+		<main className="TodoApp">
+			<div className="row">
+				{/* TO DO LIST */}
+				<div className="col-md-6">
+					{todos.length > 0 && (
+						<EditableTodoList
+							todos={todos}
+							update={update}
+							remove={remove}
+						/>
+					)}
+					{todos.length === 0 && (
+						<span className="text-muted">You have no todos.</span>
+					)}
+				</div>
 
-        {/* TOP TO DO */}
-        <div className="col-md-6">
-          {todos.length > 0 &&
-            <section className="mb-4">
-              <h3>Top Todo</h3>
-              <TopTodo todos={todos} />
-            </section>}
-          {/* FORM */}
-          <section>
-            <h3 className="mb-3">Add Nü</h3>
-            FIXME
-          </section>
-        </div>
-      </div>
-    </main>
-  );
+				{/* TOP TO DO */}
+				<div className="col-md-6">
+					{todos.length > 0 && (
+						<section className="mb-4">
+							<h3>Top Todo</h3>
+							<TopTodo todos={todos} />
+						</section>
+					)}
+					{/* FORM */}
+					<section>
+						<h3 className="mb-3">Add Nü</h3>
+						<TodoForm handleSave={create} />
+					</section>
+				</div>
+			</div>
+		</main>
+	);
 }
 
 export default TodoApp;
