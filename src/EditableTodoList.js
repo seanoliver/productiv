@@ -22,7 +22,6 @@ function EditableTodoList({ todos, update, remove }) {
           key={t.id}
 				/>
 			))}
-			;
 		</div>
 	);
 }
