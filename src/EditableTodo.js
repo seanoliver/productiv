@@ -19,10 +19,8 @@ function EditableTodo({ todo, update, remove }) {
 	const [editing, setEditing] = useState(false);
 
 	/** Toggle if this is being edited */
-  // TODO: Callback pattern!
 	function toggleEdit() {
-		const isEditing = editing ? false : true;
-		setEditing(isEditing);
+		setEditing(currEditing => currEditing ? false : true);
 	}
 
 	/** Call remove fn passed to this. */
