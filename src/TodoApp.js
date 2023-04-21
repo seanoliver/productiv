@@ -27,21 +27,16 @@ function TodoApp({ initialTodos }) {
 	}
 
 	/** update a todo with updatedTodo */
-  // TODO: Callback pattern for updating state
   // TODO: Ensure priority is a number
 	function update(updatedTodo) {
-		const newTodos = todos.map(t =>
+		setTodos(currTodos => currTodos.map(t =>
 			t.id === updatedTodo.id ? updatedTodo : t
-		);
-
-		setTodos(newTodos);
+		));
 	}
 
 	/** delete a todo by id */
-  // TODO: Callback pattern for updating state
 	function remove(id) {
-		const newTodos = todos.filter(t => id !== t.id);
-		setTodos(newTodos);
+		setTodos(currTodos => currTodos.filter(t => id !== t.id));
 	}
 
 	return (
