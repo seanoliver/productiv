@@ -64,7 +64,7 @@ function TodoApp({ initialTodos }) {
 				{/* TOP TO DO */}
 				<div className="col-md-6">
 					{todos.length > 0 && (
-						<section className="mb-4">
+						<section className="TopTodo mb-4">
 							<h3>Top Todo</h3>
 							<TopTodo todos={todos} />
 						</section>
