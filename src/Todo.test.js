@@ -1,12 +1,8 @@
 import { render, fireEvent } from "@testing-library/react";
 import Todo from "./Todo.js";
+import { TEST_TODOS } from './_testCommon.js';
 
-const TEST_TODO = {
-  id: "im-an-id",
-  title: "Test title",
-  description: "Test description",
-  priority: 1
-};
+const TEST_TODO = TEST_TODOS[0];
 
 it("renders without crashing", function () {
   render(<Todo
