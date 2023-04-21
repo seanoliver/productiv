@@ -8,13 +8,13 @@ const TEST_TODOS = [{
 	id: 'im-also-an-id',
 	title: 'Test title 2',
 	description: 'Test description 2',
-	priority: 1,
+	priority: 2,
 },
 {
 	id: 'me-too',
 	title: 'Test title 3',
 	description: 'Test description 3',
-	priority: 1,
+	priority: 3,
 }];
 
 export { TEST_TODOS }
