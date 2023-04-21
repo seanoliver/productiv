@@ -54,7 +54,7 @@ function TodoApp({ initialTodos }) {
           {todos.length > 0 &&
             <section className="mb-4">
               <h3>Top Todo</h3>
-              <TopTodo />
+              <TopTodo todos={todos} />
             </section>}
           {/* FORM */}
           <section>
